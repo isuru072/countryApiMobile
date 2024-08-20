@@ -2,7 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:european_countries_app/models/country_model.dart';
 
 class CountryService {
-  final Dio _dio = Dio();
+  final Dio _dio;
+  CountryService({Dio? dio}) : _dio = dio ?? Dio();
+
   Future<List<CountryModel>> fetchCountries() async {
     try {
       final response = await _dio.get(
